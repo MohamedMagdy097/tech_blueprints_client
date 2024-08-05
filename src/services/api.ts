@@ -1,11 +1,11 @@
 import axios from "axios";
-
+const BaseUrl = "https://blueprint-69d874f4a8f3.herokuapp.com";
 export const analyzeImage = async (file: File) => {
   const formData = new FormData();
   formData.append("file", file);
 
   const response = await axios.post(
-    "http://localhost:8000/api/v1/analyze_image/",
+    BaseUrl + "/api/v1/analyze_image/",
     formData,
     {
       headers: { "Content-Type": "multipart/form-data" },
@@ -26,7 +26,7 @@ export const getProjectDetails = async (
   formData.append("project", project);
 
   const response = await fetch(
-    "http://localhost:8000/api/v1/project_details/",
+    BaseUrl + "/api/v1/project_details/",
     {
       method: "POST",
       body: formData,
@@ -65,7 +65,7 @@ export const getProjectDetails = async (
 
 export const downloadTutorialPdf = async () => {
   const response = await axios.get(
-    "http://localhost:8000/api/v1/download_tutorial/",
+    BaseUrl + "/api/v1/download_tutorial/",
     {
       responseType: "blob",
     }
