@@ -28,6 +28,7 @@ export const getProjectDetails = async (
   const response = await fetch(
     BaseUrl + "/api/v1/project_details/",
     {
+      headers: { "Content-Type": "multipart/form-data" },
       method: "POST",
       body: formData,
       signal,
